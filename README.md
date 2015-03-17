@@ -21,14 +21,22 @@ In order for the script "run_analysis.R" to process the data, the following cond
  4. the zip-file has been unzipped into the /data/raw-directory  
 (resulting in a directory /data/raw/UCI HAR Dataset/)  
  5. R has been installed (i have been using R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet")  
+ 6. the current working directory is set to the folder that contains the "run_analysis.R" script and the /data-directory.
 
 ## Processing
 
 The data is processed by only one script called "run_analysis.R". No special libraries are required.
 
-The script processes all data in the following order.
+The script processes all data in the following order:  
 
-### Column names
+1. first the column names are read and cleaned
+2. second, the measurement data is loaded, merged and subsetted on columns of interest.
+3. third, the subject-id and activity labels are merged with the measurement data.
+4. finally, the aggregated data is calculated and stored in a file.
+
+The next two paragraphs describe this process in more detail.
+
+#### Column names
 
 The raw data is described in the document /data/raw/UCI HAR Dataset/README.txt. This file shows that the column names can be found in file features.txt
 
@@ -39,7 +47,7 @@ Because making the column-names more readible needs domain knowledge, only basic
       + replace "-" with "_",
       + remove characters like ",", "(" and ")".
 
-### Measurement data
+#### Measurement data
 
 The two files with training and test-data are loaded and merged together into a data frame. The column names are applied to the data frame.
 
@@ -48,7 +56,7 @@ Next, the data is subsetted in order to keep only
   * columns in the time-domain,   
   * columns containing the mean and standard deviation for each measurement.  
 
-The subsetting is performed by applying regular expressions on the column names.
+The subsetting is performed by selecting specific columns based on a search with regular expressions on the column names.
 
 Next, the measurement data is column-merged with the subject ids and with the activities. The activity ids are replaced with the activity descriptions.  
 The column names of these two new columns containing the subject and activity are updated to get the more descriptive values "subjectid" and "activity".  
@@ -61,3 +69,8 @@ The resulting tidied data is saved to the /data/tidy-directory.
 
 After completion of the script, the tidied data can be found in the directory
 /data/tidy/ in the file "samsung.txt".
+
+The data can be read into R (or Rstudio) with the command
+```
+samsung <- read.table(file="./data/tidy/samsung.txt", header = TRUE)
+```

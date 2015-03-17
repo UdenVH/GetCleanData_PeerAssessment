@@ -4,6 +4,17 @@ UvH
 
 # Project codebook "tidied Samsung Galaxy S smartphone data-set"
 
+## Data source
+
+The data was obtained from the Coursera page for the Peer assessment of the course "Getting and Cleaning Data" by Jeff Leek, PhD, Roger D. Peng, PhD, Brian Caffo, PhD.   
+The following link points to a full description which is available at the UCI site where the data was obtained: [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
+
+The original measurement data can be downloaded at: [UCI dataset](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip).
+
+The description of the original measurement data set can be found on the UCI site [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).   
+
+This document extends on that description with a description of the tidied data set.
+
 ## Variables
 
 This paragraph describes type of variables in the tidied data set.
@@ -25,7 +36,6 @@ The names of the columns are:
 ## [19] "tgravityaccmag_mean"   "tbodyaccjerkmag_mean" 
 ## [21] "tbodygyromag_mean"     "tbodygyrojerkmag_mean"
 ```
-  
   
 The first column contains an anonymised id of the subject. The second column contains the textual description of the activity. The other columns contain either the mean or the standard deviation of one of the measurements in the time-domain.  
 
@@ -81,6 +91,7 @@ tbodyaccjerkmag_mean    -0.8302       -0.6273       -0.2197
 tbodygyromag_mean       -0.76468      -0.57519      -0.09166    
 tbodygyrojerkmag_mean   -0.8823       -0.7457       -0.4057     
 
+Because no units were found on the website with the description of the original measurement data ([Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)), this document does not contain a descriptions of the units too.
 
 ## Transformations
 
